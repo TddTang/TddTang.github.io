@@ -16,7 +16,7 @@
 <p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/RabbitHu/p/BIT.html%E5%A4%A7%E4%BD%AC%E7%9A%84%E6%96%87%E7%AB%A0%EF%BC%8C%E4%BE%B5%E5%88%A0%EF%BC%8C%E6%9C%AC%E6%96%87%E6%8E%A8%E7%90%86%E9%83%BD%E6%9D%A5%E8%87%AA%E8%AF%A5%E6%96%87%E3%80%82">https://www.cnblogs.com/RabbitHu/p/BIT.html大佬的文章，侵删，本文推理都来自该文。</a></p>
 </blockquote>
 <p>这里d数组是我的树状数组,a数组就是初始数组了，让你修改查询的。</p>
-<p><img src="https://img-blog.csdn.net/20180720210615980?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1RERF9NYXN0ZXI=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt="img0" /></p>
+<p><img src="https://ss3.bdstatic.com/70cFv8Sh_Q1YnxGkpoWK1HF6hhy/it/u=760882210,3135546395&amp;fm=26&amp;gp=0.jpg" alt="img0" /></p>
 <p>​      这就是树状数组的存储方式，不难看出它的存储是和二进制有关的（滑稽，好看出个鬼）举个栗子d[6]=a[5]+a[6]; （6的二进制数是110，末尾一个0，那d[6]就是存储2^1个元素的和） 同理我们也可以验证d[8]=a[1]+…a[8] (因为8的二进制数是1000，有3个零，就是存储2^3个) ； 而查询前缀和，就需要用到lowbit这个函数，非常巧妙，视频说的非常清楚。</p>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">lowbit</span><span class="params">(<span class="keyword">int</span> x)</span></span>&#123;</span><br><span class="line">	<span class="keyword">return</span> x&amp;(-x);</span><br><span class="line">&#125; </span><br><span class="line">x-=lowbit(x);</span><br><span class="line"><span class="keyword">or</span> x+=lowbit(x);</span><br></pre></td></tr></table></figure>
 <p>也可以直接使用 x+=x&amp;(-x) or x-=x&amp;(-x)</p>
