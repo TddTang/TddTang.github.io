@@ -487,8 +487,6 @@
           
           <category> 算法 </category>
           
-          <category> 专题 </category>
-          
       </categories>
       
       
@@ -498,7 +496,7 @@
             
             <tag> 数论 </tag>
             
-            <tag> 点分支 </tag>
+            <tag> 点分治 </tag>
             
         </tags>
       
