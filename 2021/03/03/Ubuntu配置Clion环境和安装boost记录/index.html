@@ -1,0 +1,101 @@
+<!DOCTYPE html><html lang="zh-Hans"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><meta name="description" content="Ubuntu配置Clion环境和安装boost记录"><meta name="keywords" content="bug"><meta name="author" content="Tang"><meta name="copyright" content="Tang"><title>Ubuntu配置Clion环境和安装boost记录 | TddTang's blog</title><link rel="shortcut icon" href="/T3.ico"><link rel="stylesheet" href="/css/index.css?version=1.9.0"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@latest/css/font-awesome.min.css?version=1.9.0"><meta name="format-detection" content="telephone=no"><meta http-equiv="x-dns-prefetch-control" content="on"><link rel="dns-prefetch" href="https://cdn.jsdelivr.net"><meta http-equiv="Cache-Control" content="no-transform"><meta http-equiv="Cache-Control" content="no-siteapp"><script>var GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"search.xml","languages":{"hits_empty":"找不到您查询的内容:${query}"}},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  hexoVersion: '5.3.0'
+} </script><meta name="generator" content="Hexo 5.3.0"></head><body><canvas class="fireworks"></canvas><i class="fa fa-arrow-right" id="toggle-sidebar" aria-hidden="true"></i><div id="sidebar" data-display="true"><div class="toggle-sidebar-info text-center"><span data-toggle="切换文章详情">切换站点概览</span><hr></div><div class="sidebar-toc"><div class="sidebar-toc__title">目录</div><div class="sidebar-toc__progress"><span class="progress-notice">你已经读了</span><span class="progress-num">0</span><span class="progress-percentage">%</span><div class="sidebar-toc__progress-bar"></div></div><div class="sidebar-toc__content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E8%99%9A%E6%8B%9F%E6%9C%BA%E7%8E%AF%E5%A2%83"><span class="toc-text"> 虚拟机环境</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%8D%A2%E6%BA%90"><span class="toc-text"> 换源</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E9%85%8D%E7%BD%AEclion%E7%8E%AF%E5%A2%83%E5%92%8C%E5%AE%89%E8%A3%85"><span class="toc-text"> 配置Clion环境和安装：</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%80%E7%8E%AF%E5%A2%83"><span class="toc-text"> 一，环境</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%8C%E5%AE%89%E8%A3%85"><span class="toc-text"> 二，安装</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#boost%E5%AE%89%E8%A3%85"><span class="toc-text"> boost安装</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%80%E5%AE%89%E8%A3%85"><span class="toc-text"> 一，安装</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%8C%E9%81%87%E5%88%B0%E7%9A%84%E4%B8%80%E4%BA%9B%E9%97%AE%E9%A2%98"><span class="toc-text"> 二，遇到的一些问题</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1%E5%BA%93%E6%97%A0%E6%B3%95%E5%AE%89%E8%A3%85%E4%BE%9D%E8%B5%96%E5%85%B3%E7%B3%BB"><span class="toc-text"> 1.库无法安装（依赖关系）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-%E7%A7%BB%E5%8A%A8%E6%96%87%E4%BB%B6%E6%9D%83%E9%99%90%E4%B8%8D%E5%A4%9F"><span class="toc-text"> 2. 移动文件权限不够</span></a></li></ol></li></ol></li></ol></div></div><div class="author-info hide"><div class="author-info__avatar text-center"><img src="https://pic3.zhimg.com/80/v2-b43a88bcc54a88c0d79115912f9e9da6_1440w.jpg"></div><div class="author-info__name text-center">Tang</div><div class="author-info__description text-center"></div><hr><div class="author-info-articles"><a class="author-info-articles__archives article-meta" href="/archives"><span class="pull-left">文章</span><span class="pull-right">136</span></a><a class="author-info-articles__tags article-meta" href="/tags"><span class="pull-left">标签</span><span class="pull-right">46</span></a><a class="author-info-articles__categories article-meta" href="/categories"><span class="pull-left">分类</span><span class="pull-right">12</span></a></div></div></div><div id="content-outer"><div id="top-container" style="background-image: url(https://pic4.zhimg.com/v2-c82225d5cfbf7cd442a27858aa84e00b_r.jpg?source=1940ef5c)"><div id="page-header"><span class="pull-left"> <a id="site-name" href="/">TddTang's blog</a></span><i class="fa fa-bars toggle-menu pull-right" aria-hidden="true"></i><span class="pull-right menus">   <a class="site-page" href="/">主页</a><a class="site-page" href="/archives">时间轴</a><a class="site-page" href="/tags">标签</a><a class="site-page" href="/categories">分类</a><a class="site-page" href="/about">关于</a></span><span class="pull-right"><a class="site-page social-icon search"><i class="fa fa-search"></i><span> 搜索</span></a></span></div><div id="post-info"><div id="post-title">Ubuntu配置Clion环境和安装boost记录</div><div id="post-meta"><time class="post-meta__date"><i class="fa fa-calendar" aria-hidden="true"></i> 2021-03-03</time><span class="post-meta__separator">|</span><i class="fa fa-inbox post-meta__icon" aria-hidden="true"></i><a class="post-meta__categories" href="/categories/Ubuntu/">Ubuntu</a><div class="post-meta-wordcount"><span>字数总计: </span><span class="word-count">903</span><span class="post-meta__separator">|</span><span>阅读时长: 3 分钟</span></div></div></div></div><div class="layout" id="content-inner"><article id="post"><div class="article-container" id="post-content"><h1 id="虚拟机环境"><a class="markdownIt-Anchor" href="#虚拟机环境"></a> 虚拟机环境</h1>
+<img src="https://img-blog.csdnimg.cn/20210303134512130.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1RERF9NYXN0ZXI=,size_16,color_FFFFFF,t_70#pic_center" style="zoom:50%;" />
+<h1 id="换源"><a class="markdownIt-Anchor" href="#换源"></a> 换源</h1>
+<p>原来的源下载东西很慢，在软件和更新中即可换源，更换为阿里的源。</p>
+<img src="https://img-blog.csdnimg.cn/20210303134712130.png#pic_center" style="zoom:50%;" />
+<img src="https://img-blog.csdnimg.cn/20210303135155725.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1RERF9NYXN0ZXI=,size_16,color_FFFFFF,t_70#pic_center" style="zoom:50%;" />
+<h1 id="配置clion环境和安装"><a class="markdownIt-Anchor" href="#配置clion环境和安装"></a> 配置Clion环境和安装：</h1>
+<h2 id="一环境"><a class="markdownIt-Anchor" href="#一环境"></a> 一，环境</h2>
+<p>Ubuntu中用到的编译工具是gcc©，g++（C++），make(连接)。因此只需安装对应的工具包即可。Ubuntu下使用命令安装这些包：</p>
+<ol>
+<li>安装gcc</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt install gcc</span><br></pre></td></tr></table></figure>
+<ol start="2">
+<li>安装g++</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt install g++</span><br></pre></td></tr></table></figure>
+<ol start="3">
+<li>安装make</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt install make</span><br></pre></td></tr></table></figure>
+<p>我就安装了这三个，此时Clion已成功检测，并能编译成功。</p>
+<ol start="4">
+<li>同时可以将git安装一下</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt install git</span><br></pre></td></tr></table></figure>
+<p>网上也看见更完整的环境：</p>
+<blockquote>
+<p>在安装之前，请执行下面的命令，把环境搭建一下</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&gt;sudo apt-get update</span><br><span class="line">&gt;sudo apt-get install build-essential</span><br><span class="line">&gt;sudo apt-get install cmake</span><br><span class="line">&gt;sudo apt-get install bison</span><br><span class="line">&gt;sudo apt-get install library*</span><br><span class="line">&gt;sudo apt-get install libncurses5-dev</span><br><span class="line">&gt;sudo apt-get install g++</span><br><span class="line">&gt;sudo apt-get install kdelibs5-dev</span><br><span class="line">&gt;sudo apt-get install make</span><br></pre></td></tr></table></figure>
+<p>执行完成后，环境就搭建好了</p>
+</blockquote>
+<h2 id="二安装"><a class="markdownIt-Anchor" href="#二安装"></a> 二，安装</h2>
+<p>Clion从官网下载解压包之后，解压进入bin目录下</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">.&#x2F;clion.sh</span><br></pre></td></tr></table></figure>
+<p>没有桌面图标入口的话</p>
+<p>Clion内 <strong>Tools-&gt;Create Desktop Entry</strong>即可</p>
+<h1 id="boost安装"><a class="markdownIt-Anchor" href="#boost安装"></a> boost安装</h1>
+<h2 id="一安装"><a class="markdownIt-Anchor" href="#一安装"></a> 一，安装</h2>
+<p>根据这<a target="_blank" rel="noopener" href="https://www.cnblogs.com/taolusi/p/9244554.html">文章 </a>完成了boost的安装，可以使用wget或者官网下载后解压</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"># 来自上述文章</span><br><span class="line"># 首先删除本地原有的 boost 库</span><br><span class="line">rm -f &#x2F;usr&#x2F;lib&#x2F;libboost*</span><br><span class="line">rm -fr &#39;find &#x2F; -name libboost*&#39;</span><br><span class="line"># 移除boost头文件</span><br><span class="line">mv &#x2F;usr&#x2F;include&#x2F;boost &#x2F;usr&#x2F;include&#x2F;boost-bak</span><br><span class="line"># 下载 wget</span><br><span class="line">apt-get install wget</span><br><span class="line"># 下载Boost库</span><br><span class="line">wget https:&#x2F;&#x2F;dl.bintray.com&#x2F;boostorg&#x2F;release&#x2F;1.57.0&#x2F;source&#x2F;boost_1_57_0.tar.gz</span><br><span class="line">tar -zxvf boost_1_57_0.tar.gz</span><br><span class="line">cd boost_1_57_0</span><br><span class="line"># 安装必要的库</span><br><span class="line">sudo apt-get update</span><br><span class="line">sudo apt-get install build-essential g++ python-dev autotools-dev libicu-dev build-essential libbz2-dev libboost-all-dev</span><br><span class="line"># 构建符合环境的脚本</span><br><span class="line">.&#x2F;bootstrap.sh</span><br><span class="line"># 编译一下</span><br><span class="line">.&#x2F;b2</span><br><span class="line"># 最终安装</span><br><span class="line">sudo .&#x2F;b2 install</span><br></pre></td></tr></table></figure>
+<p><strong>如果编译好程序后，在运行时提示无法加载某个库文件，则把/usr/local/lib下的所有boost的库文件mv到/usr/lib目录下就可以了。</strong></p>
+<p>上文是没有指定安装位置，这样头文件就被默认安装在/usr/local/include头文件下，库文件就被默认安装在/usr/local/lib下，<a href="%5Bubuntu16.04%E5%AE%89%E8%A3%85boost%E5%88%B0%E6%8C%87%E5%AE%9A%E7%9B%AE%E5%BD%95%E4%B8%8B_%E8%BE%B0%E8%99%AB%E7%89%99%E7%9A%84%E5%8D%9A%E5%AE%A2-CSDN%E5%8D%9A%E5%AE%A2%5D(https://blog.csdn.net/weixin_40622974/article/details/83476384?utm_medium=distribute.pc_relevant_t0.none-task-blog-BlogCommendFromMachineLearnPai2-1.control&amp;dist_request_id=&amp;depth_1-utm_source=distribute.pc_relevant_t0.none-task-blog-BlogCommendFromMachineLearnPai2-1.control)">ubuntu16.04安装boost到指定目录下。</a></p>
+<h2 id="二遇到的一些问题"><a class="markdownIt-Anchor" href="#二遇到的一些问题"></a> 二，遇到的一些问题</h2>
+<h3 id="1库无法安装依赖关系"><a class="markdownIt-Anchor" href="#1库无法安装依赖关系"></a> 1.库无法安装（依赖关系）</h3>
+<blockquote>
+<p>类似：</p>
+<p>python2.7-dev : 依赖: python2.7 (= 2.7.3-0ubuntu3) 但是 2.7.3-0ubuntu3.1 已安装。<br />
+依赖: libpython2.7 (= 2.7.3-0ubuntu3) 但是 2.7.3-0ubuntu3.1 已安装。<br />
+依赖: libexpat1-dev 但它将不会被安装。<br />
+依赖: libssl-dev 但它将不会被安装</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">用aptitude 工具可以两步搞定：</span><br><span class="line"></span><br><span class="line">sudo apt-get install aptitude </span><br><span class="line"></span><br><span class="line">sudo aptitude install python-dev</span><br></pre></td></tr></table></figure>
+<p>若保持当前软件包的状态问题可能无法解决，所以第一个选n，第二种方案降级y。<a target="_blank" rel="noopener" href="https://blog.csdn.net/u013182960/article/details/53431460">全文链接</a></p>
+<h3 id="2-移动文件权限不够"><a class="markdownIt-Anchor" href="#2-移动文件权限不够"></a> 2. 移动文件权限不够</h3>
+<p>就是解决上述boost提示无法加载某个库文件，因为默认情况下，编译器只会使用/lib和/usr/lib这两个目录下的库文件，通常通过源码包进行安装时，如果不指定–prefix，将会将库安装在/usr/local/lib下，故当程序需要链接动态库时，会报错。</p>
+<blockquote>
+<p>一种简单粗暴的方法就是将关于boost的文件移动到/usr/lib下</p>
+</blockquote>
+<blockquote>
+<p>另一种，如<a target="_blank" rel="noopener" href="https://www.cnblogs.com/littlek1d/p/9644899.html">文章中所示</a></p>
+</blockquote>
+<p>移动的过程中，提示权限不足，在需要被复制的文件夹下打开终端：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo nautilus</span><br></pre></td></tr></table></figure>
+<p>然后选择需要复制到的文件夹目录下，从被复制文件夹下 复制文件 到该文件夹下粘贴即可。</p>
+</div></article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="mailto:undefined">Tang</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="http://tddtang.top/2021/03/03/Ubuntu配置Clion环境和安装boost记录/">http://tddtang.top/2021/03/03/Ubuntu配置Clion环境和安装boost记录/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="http://tddtang.top">TddTang's blog</a>！</span></div></div><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/bug/">bug</a></div><nav id="pagination"><div class="next-post pull-right"><a href="/2021/01/09/Goodbye2020/"><span>Goodbye 2020</span><i class="fa fa-chevron-right"></i></a></div></nav><div id="vcomment"></div><script src="https://cdn1.lncld.net/static/js/3.0.4/av-min.js"></script><script src="https://cdn.jsdelivr.net/npm/valine/dist/Valine.min.js"></script><script>var notify = 'false' == 'true';
+var verify = 'true' == 'true';
+var record_ip = 'false' == 'true';
+var GUEST_INFO = ['nick','mail','link'];
+var guest_info = 'nick,mail,link'.split(',').filter(function(item){
+  return GUEST_INFO.indexOf(item) > -1
+});
+guest_info = guest_info.length == 0 ? GUEST_INFO :guest_info;
+window.valine = new Valine({
+  el:'#vcomment',
+  notify:notify,
+  verify:verify,
+  recordIP:record_ip,
+  appId:'VmYg4zNcoBiByayjzKbzfTk2-gzGzoHsz',
+  appKey:'rgMI6cE5lEaz58dzRL0CIzbV',
+  placeholder:'巴拉巴拉巴...',
+  avatar:'retro',
+  guest_info:guest_info,
+  pageSize:'10',
+  lang: 'zh-cn'
+})</script></div></div><footer class="footer-bg" style="background-image: url(https://pic4.zhimg.com/v2-c82225d5cfbf7cd442a27858aa84e00b_r.jpg?source=1940ef5c)"><div class="layout" id="footer"><div class="copyright">&copy;2017 - 2021 By Tang</div><div class="framework-info"><span>驱动 - </span><a target="_blank" rel="noopener" href="http://hexo.io"><span>Hexo</span></a><span class="footer-separator">|</span><span>主题 - </span><a target="_blank" rel="noopener" href="https://github.com/Molunerfinn/hexo-theme-melody"><span>Melody</span></a></div><div class="busuanzi"><script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><span id="busuanzi_container_page_pv"><i class="fa fa-file"></i><span id="busuanzi_value_page_pv"></span><span></span></span></div></div></footer><i class="fa fa-arrow-up" id="go-up" aria-hidden="true"></i><script src="https://cdn.jsdelivr.net/npm/animejs@latest/anime.min.js"></script><script src="https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js"></script><script src="https://cdn.jsdelivr.net/npm/velocity-animate@latest/velocity.min.js"></script><script src="https://cdn.jsdelivr.net/npm/velocity-ui-pack@latest/velocity.ui.min.js"></script><script src="/js/utils.js?version=1.9.0"></script><script src="/js/fancybox.js?version=1.9.0"></script><script src="/js/sidebar.js?version=1.9.0"></script><script src="/js/copy.js?version=1.9.0"></script><script src="/js/fireworks.js?version=1.9.0"></script><script src="/js/transition.js?version=1.9.0"></script><script src="/js/scroll.js?version=1.9.0"></script><script src="/js/head.js?version=1.9.0"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.css"><script src="https://cdn.jsdelivr.net/npm/katex-copytex@latest/dist/katex-copytex.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/katex-copytex@latest/dist/katex-copytex.min.css"><script src="/js/katex.js"></script><script src="/js/search/local-search.js"></script><script id="ribbon" src="/js/third-party/canvas-ribbon.js" size="150" alpha="0.6" zIndex="-1" data-click="false"></script><script>if(/Android|webOS|iPhone|iPod|iPad|BlackBerry/i.test(navigator.userAgent)) {
+  $('#nav').addClass('is-mobile')
+  $('footer').addClass('is-mobile')
+  $('#top-container').addClass('is-mobile')
+}</script><div class="search-dialog" id="local-search"><div class="search-dialog__title" id="local-search-title">本地搜索</div><div id="local-input-panel"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章"></div></div></div><hr><div id="local-search-results"><div id="local-hits"></div><div id="local-stats"><div class="local-search-stats__hr" id="hr"><span>由</span> <a target="_blank" rel="noopener" href="https://github.com/wzpan/hexo-generator-search" style="color:#49B1F5;">hexo-generator-search</a>
+ <span>提供支持</span></div></div></div><span class="search-close-button"><i class="fa fa-times"></i></span></div><div class="search-mask"></div></body></html>
