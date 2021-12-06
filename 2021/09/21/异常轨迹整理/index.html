@@ -23,7 +23,7 @@
 <td>Online Anomalous Trajectory Detection with DeepGenerative Sequence Modeling</td>
 <td><a target="_blank" rel="noopener" href="https://www.kaggle.com/c/pkdd-15-predict-taxi-service-trajectory-i/data">Porto</a> :由 2013 年 1 月 7 日至 2014 年 6 月 30 日期间在波尔图市运行的 442 辆出租车产生,每辆出租车每隔 15 秒报告一次其位置。<br><a target="_blank" rel="noopener" href="https://www.microsoft.com/en-us/research/publication/t-drive-trajectory-data-sample/">Beijing</a> :这是包含10357辆出租车一周轨迹的T-Drive轨迹数据集样本。这个数据集中的点总数大约是1500万，轨迹的总距离达到900万公里。</td>
 <td>继之前关于空间异常值检测的工作 [37,使用度量学习的上下文空间异常值检测]，使用生成的异常（绕路异常和路线切换异常）进行评估。</td>
-<td>本文提出了一种通过生成来检测异常轨迹的方法。<br>其包含三个部分：推理网络可以推断轨迹的路线并将其用向量表示；路线概率分布指用概率分布对路线建模，来表示一条路线为正常路线的可能性；生成网络可以从一个给予的路线中生成轨迹。<br>针对于现实时间中多种多样且复杂的路线问题，本文使用了高斯混合分布来对路线进行建模，假设轨迹数据有C(超参数) 种不同类型的路线，可以得到一条轨迹T的路线为类型c的概率$p_\gamma(c</td>
+<td>本文提出了一种通过生成来检测异常轨迹的方法。<br>其包含三个部分：推理网络可以推断轨迹的路线并将其用向量表示；路线概率分布指用概率分布对路线建模，来表示一条路线为正常路线的可能性；生成网络可以从一个给予的路线中生成轨迹。<br><br><strong>提出的 GM-VSAE 和 SD-VSAE 是通过生成来检测异常轨迹的方法,若对于一对源点终点，出现一条新的、 更优的道路，而 VSAE 可能将其判为异常，需要对模型进行更 新。对于每天的不同时刻、不同区域的异常轨迹检测问题，VSAE 需要考虑路线的概率，所以模型应当随着时间推移进行更新。</strong></td>
 </tr>
 <tr>
 <td>STL: Online Detection of Taxi Trajectory Anomaly Based on Spatial-Temporal Laws<br>--------------<br>Detecting Taxi Trajectory Anomaly Based on Spatio-Temporal Relations</td>
